@@ -35,11 +35,11 @@ GET / HTTP/1.1
 Si legge chiaramente uno scambio di SYN - SYN ACK - ACK. È il classico instauro della connessione che accade per comunicare con il protocollo TCP.
 Solo dopo la conferma della creazione del tunnel di connessione fra i due host, allora procedono a scambiare i dati effettivi per il livello applicazione.
 4. **Creare un filtro per visualizzare solo i pacchetti TCP (compresi i pacchetti HTTP) e determinarne il numero.**
-	*tcp && http* --> 134
-5. **Creare un filtro per visualizzare solo i pacchetti TCP (esclusi i pacchetti HTTP) e determinarne il numero.**
 	*tcp* --> 807
+5. **Creare un filtro per visualizzare solo i pacchetti TCP (esclusi i pacchetti HTTP) e determinarne il numero.**
+    *tcp && not http* --> 673
 ** Qual è la percentuale sul totale dei pacchetti TCP trovata al punto 5?**
-98.1 %
+81.8%
 ** A cosa servono tali pacchetti?**
 Servono ad uno scambio di dati tramite il protocollo TCP, comprendono l'instauro della connessione, lo scambio di dati, e la chiusura della connessione.
 ** Se il protocollo DNS dei pacchetti 1 e 2 avesse usato il protocollo TCP, quanti pacchetti IP sarebbero stati generati? Sarebbe stato utile?**
