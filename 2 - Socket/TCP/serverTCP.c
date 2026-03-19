@@ -11,12 +11,15 @@ int main(void) {
     }
     else
     {
-        printf("[SERVER] Sono in attesa di richieste di connessione da qualche client\n");    
+        response = 0;
+        printf("[SERVER] Sono in attesa di richieste di connessione da qualche client\n");
         connection = acceptConnection(socket);
         printf("[SERVER] Connessione instaurata\n");
-        TCPReceive(connection, &request, sizeof(request));
-        printf("[SERVER] Ho ricevuto la seguente richiesta dal client: %d\n", request);
-        response = request + 1;
+        while (request != 0) {
+            TCPReceive(connection, &request, sizeof(request));
+            printf("[SERVER] Ho ricevuto la seguente richiesta dal client: %d\n", request);
+            response += request;
+        }
         printf("[SERVER] Invio la risposta al client\n");
         TCPSend(connection, &response, sizeof(response));
         closeConnection(connection);

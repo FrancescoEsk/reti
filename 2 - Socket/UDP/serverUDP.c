@@ -6,10 +6,11 @@ int main(void) {
     char request[MTU];
     char hostAddress[MAXADDRESSLEN];
     int port;
+    int x = 0;
     
-    socket = createUDPInterface(10000);
+    socket = createUDPInterface(100);
     
-    while(true) {
+    while(x < 5) {
     
         printf("[SERVER] Sono in attesa di richieste da qualche client\n");
     
@@ -19,6 +20,8 @@ int main(void) {
         printf("[SERVER] Contenuto: %s\n", request);
     
         UDPSend(socket, response, strlen(response), hostAddress, port);
+
+        x++;
     }
     
 }

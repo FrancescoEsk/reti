@@ -11,10 +11,13 @@ int main(void) {
     }
     else
     {
-        printf("[CLIENT] Inserisci un numero intero:\n");
-        scanf("%d", &request);
-        printf("[CLIENT] Invio richiesta con numero al server\n");
-        TCPSend(connection, &request, sizeof(request));
+        while (request != 0) {
+            printf("[CLIENT] Inserisci un numero intero:\n");
+            scanf("%d", &request);
+            printf("[CLIENT] Invio richiesta con numero al server\n");
+            TCPSend(connection, &request, sizeof(request));
+        }
+
         TCPReceive(connection, &response, sizeof(response));
         printf("[CLIENT] Ho ricevuto la seguente risposta dal server: %d\n", response);
         closeConnection(connection);
