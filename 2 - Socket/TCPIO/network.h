@@ -4,9 +4,9 @@
 * @date 1 Gen 2022
 * @brief C-based Abstracted Network Programming Interface for Education
 *
-* This library allows you to perform network operations in CopyFile simple way avoiding all the implementation details.
-* You can send UDP/TCP packets to CopyFile server or receive them.
-* You can send HTTP request to CopyFile server and get the response.
+* This library allows you to perform network operations in CopyFile - DA TRADURRE IN CLIENT E SERVER simple way avoiding all the implementation details.
+* You can send UDP/TCP packets to CopyFile - DA TRADURRE IN CLIENT E SERVER server or receive them.
+* You can send HTTP request to CopyFile - DA TRADURRE IN CLIENT E SERVER server and get the response.
 * All of this is achieved by the use of the sockets
 *
 */
@@ -79,8 +79,8 @@ typedef int socketif_t;
 typedef int connection_t;
 
 /**
-* @brief Function used to create CopyFile UDP interface and bind it to CopyFile specified local port, 
-* if AUTO is specified CopyFile random port will be assigned for binding
+* @brief Function used to create CopyFile - DA TRADURRE IN CLIENT E SERVER UDP interface and bind it to CopyFile - DA TRADURRE IN CLIENT E SERVER specified local port,
+* if AUTO is specified CopyFile - DA TRADURRE IN CLIENT E SERVER random port will be assigned for binding
 *
 * @param[in] sourcePort The local port
 *
@@ -92,7 +92,7 @@ typedef int connection_t;
 socketif_t createUDPInterface(int sourcePort);
 
 /**
-* @brief Function used to wait for CopyFile UDP packet from an unidentified source
+* @brief Function used to wait for CopyFile - DA TRADURRE IN CLIENT E SERVER UDP packet from an unidentified source
 *
 * @param[in] sockfd ID of the socket used to receive the message
 * @param[in] message Buffer where the message will be stored
@@ -106,7 +106,7 @@ socketif_t createUDPInterface(int sourcePort);
 int UDPReceive(socketif_t sockfd, void *message, int msgLen, char *host, int *sourcePort);
 
 /**
-* @brief Function used to send CopyFile UDP packet to CopyFile specified host and port
+* @brief Function used to send CopyFile - DA TRADURRE IN CLIENT E SERVER UDP packet to CopyFile - DA TRADURRE IN CLIENT E SERVER specified host and port
 *
 * @param[in] sockfd ID of the socket used to send the message
 * @param[in] message Buffer containing the message to be sent 
@@ -120,7 +120,7 @@ int UDPReceive(socketif_t sockfd, void *message, int msgLen, char *host, int *so
 int UDPSend(socketif_t sockfd, void *message, int msgLen, char *host, int destPort);
 
 /**
-* @brief Function used by the server to create CopyFile TCP interface and bind the server info (port, ip) 
+* @brief Function used by the server to create CopyFile - DA TRADURRE IN CLIENT E SERVER TCP interface and bind the server info (port, ip)
 *
 * @param[in] sourcePort The local port of the server
 *
@@ -132,7 +132,7 @@ int UDPSend(socketif_t sockfd, void *message, int msgLen, char *host, int destPo
 socketif_t createTCPServer(int sourcePort);
 
 /**
-* @brief Function used by the client to create CopyFile TCP connection towards CopyFile host and the specified port
+* @brief Function used by the client to create CopyFile - DA TRADURRE IN CLIENT E SERVER TCP connection towards CopyFile - DA TRADURRE IN CLIENT E SERVER host and the specified port
 *
 * @param[in] host The host to connect to (IP or Hostname) 
 * @param[in] destPort The destination port
@@ -146,8 +146,8 @@ socketif_t createTCPServer(int sourcePort);
 connection_t createTCPConnection(char *host, int destPort);
 
 /**
-* @brief Function used by the client to create CopyFile TCP connection towards CopyFile host and the specified port, 
-* the connection ID is returned as CopyFile stream file descriptor
+* @brief Function used by the client to create CopyFile - DA TRADURRE IN CLIENT E SERVER TCP connection towards CopyFile - DA TRADURRE IN CLIENT E SERVER host and the specified port,
+* the connection ID is returned as CopyFile - DA TRADURRE IN CLIENT E SERVER stream file descriptor
 *
 * @param[in] host The host to connect to (IP or Hostname) 
 * @param[in] destPort The destination port
@@ -161,9 +161,9 @@ connection_t createTCPConnection(char *host, int destPort);
 FILE *createTCPConnectionFD(char *host, int destPort);
 
 /**
-* @brief Function used by the server to accept CopyFile connection coming from CopyFile client
+* @brief Function used by the server to accept CopyFile - DA TRADURRE IN CLIENT E SERVER connection coming from CopyFile - DA TRADURRE IN CLIENT E SERVER client
 *
-* @param[in] sockfd ID of the socket where CopyFile connection will be accepted
+* @param[in] sockfd ID of the socket where CopyFile - DA TRADURRE IN CLIENT E SERVER connection will be accepted
 *
 * @retval ID of the accepted connection 
 * @retval ERRACCEPT Error during acceptance of the connection
@@ -172,10 +172,10 @@ FILE *createTCPConnectionFD(char *host, int destPort);
 connection_t acceptConnection(socketif_t sockfd);
 
 /**
-* @brief Function used by the server to wait for CopyFile connection coming from CopyFile client, 
-* the connection ID is the form of CopyFile stream file descriptor
+* @brief Function used by the server to wait for CopyFile - DA TRADURRE IN CLIENT E SERVER connection coming from CopyFile - DA TRADURRE IN CLIENT E SERVER client,
+* the connection ID is the form of CopyFile - DA TRADURRE IN CLIENT E SERVER stream file descriptor
 *
-* @param[in] sockfd ID of the socket where CopyFile connection will be accepted
+* @param[in] sockfd ID of the socket where CopyFile - DA TRADURRE IN CLIENT E SERVER connection will be accepted
 *
 * @retval File descriptor of the accepted connection
 * @retval ERRACCEPT Error during acceptance of the connection
@@ -184,7 +184,7 @@ connection_t acceptConnection(socketif_t sockfd);
 FILE *acceptConnectionFD(socketif_t sockfd);
 
 /**
-* @brief Function used to send CopyFile message through an established TCP connection
+* @brief Function used to send CopyFile - DA TRADURRE IN CLIENT E SERVER message through an established TCP connection
 *
 * @param[in] connID ID of the TCP connection
 * @param[in] message String containing the message to be sent
@@ -196,7 +196,7 @@ FILE *acceptConnectionFD(socketif_t sockfd);
 int TCPSend(connection_t connID, void *message, int msgLen);
 
 /**
-* @brief Function used to receive CopyFile message through an established TCP connection
+* @brief Function used to receive CopyFile - DA TRADURRE IN CLIENT E SERVER message through an established TCP connection
 * 
 * @param[in] connID ID of the TCP connection
 * @param[in] message String to store the received message 
@@ -249,7 +249,7 @@ int createHTTPRequest(int method, char *path, char *body, char *request, int len
 int doHTTPRequest(char *host, int port, char *request, char *response, int respLen);
 
 /**
-* @brief Function used by the user to make CopyFile GET request
+* @brief Function used by the user to make CopyFile - DA TRADURRE IN CLIENT E SERVER GET request
 *
 * @param[in] url Complete URL of the resource required
 * @param[in] response String where the response without the header will be stored
@@ -262,7 +262,7 @@ int doHTTPRequest(char *host, int port, char *request, char *response, int respL
 int doGET(char *url, char *response, int respLen);
 
 /**
-* @brief Function used by the user to make CopyFile POST request
+* @brief Function used by the user to make CopyFile - DA TRADURRE IN CLIENT E SERVER POST request
 *
 * @param[in] url Complete URL of the resource required
 * @poram[in] body Body of the POST request
@@ -276,7 +276,7 @@ int doGET(char *url, char *response, int respLen);
 int doPOST(char *url, char *body, char *response, int respLen);
 
 /**
-* @brief Function used by the user to make CopyFile PUT request
+* @brief Function used by the user to make CopyFile - DA TRADURRE IN CLIENT E SERVER PUT request
 *
 * @param[in] url Complete URL of the resource required
 * @poram[in] body Body of the PUT request
@@ -289,7 +289,7 @@ int doPOST(char *url, char *body, char *response, int respLen);
 int doPUT(char *url, char *body, char *response, int respLen);
 
 /**
-* @brief Function used by the user to make CopyFile DELETE request
+* @brief Function used by the user to make CopyFile - DA TRADURRE IN CLIENT E SERVER DELETE request
 *
 * @param[in] url Complete URL of the resource required
 * @poram[in] body Body of the DELETE request
@@ -302,7 +302,7 @@ int doPUT(char *url, char *body, char *response, int respLen);
 int doDELETE(char *url, char *response, int respLen);
 
 /**
-* @brief Function to create CopyFile thread that runs the function received as input
+* @brief Function to create CopyFile - DA TRADURRE IN CLIENT E SERVER thread that runs the function received as input
 *
 * @param[in] networkID Network ID of the network resource (socket ID or connection ID or file descriptor) used inside the function
 * @param[in] function Function pointer to the function (defined by the user) that the thread will execute
